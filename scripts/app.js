@@ -2,6 +2,12 @@ const squares = document.querySelectorAll('.square')
 const mole = document.querySelector('.mole')
 const timeLeft = document.querySelector('#time-left')
 const score = document.querySelector('#score')
+const stop = document.getElementById('stop')
+const slowBtn = document.getElementById('slow')
+const mediumBtn = document.getElementById('medium')
+const fastBtn = document.getElementById('fast')
+
+let speed = 3000
 
 let result = 0
 let hitPosition
@@ -31,7 +37,7 @@ squares.forEach(square => {
 
 function moveMole() {
     let timerID = null
-    timerId = setInterval(randomSquare, 500)
+    timerId = setInterval(randomSquare, speed)
     countDownTimerId = setInterval(countDown, 1000)
 }
 
@@ -44,3 +50,35 @@ function countDown() {
         alert('GAME OVER! Your final score is ' + result)
     }
  }
+
+ function stopBtn() {
+     result = 0
+     currentTime = 60
+     clearInterval(moveMole)
+     alert('GAME STOPPED!')
+     speed = 0
+     clearInterval(countDownTimerId)
+     
+ }
+
+ stop.addEventListener('click', stopBtn)
+
+ slowBtn.addEventListener('click', function() {speed = 1500})
+ mediumBtn.addEventListener('click', function() {speed = 1000})
+ fastBtn.addEventListener('click', function() {speed = 500})
+
+ 
+
+//  function speedSelect() {
+//      if (.clicked == true) {
+//          speed = 200
+//      }
+
+//      else if (mediumBtn.clicked === true) {
+//         speed = 1000
+//      }
+
+//      else if (fastBtn.clicked === true){
+//          speed = 500
+//      }
+//  }
