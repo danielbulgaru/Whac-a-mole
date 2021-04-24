@@ -31,7 +31,7 @@ squares.forEach(square => {
         result++;
         score.textContent = result
         hitPosition = null
-        }
+        } 
     })
 })
 
